@@ -3,12 +3,39 @@
  */
 package inz.opr.zadanie4;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static java.lang.String.format;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+
+    private String[] promptValues() {
+        System.out.print("Podaj wartości a b c: ");
+        var scanner = new Scanner(System.in);
+        return scanner.nextLine().split(" ");
     }
 
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        var app = new App();
+        app.run(args);
+    }
+
+    public void run(String[] args) {
+        var arg = args.length == 0 ? promptValues() : args;
+        var rownanie = new Rownanie();
+        if (arg.length != 3) {
+            throw new IllegalArgumentException(
+                    format("Nieprawidłowa ilość parametrów: %d %s",
+                            arg.length,
+                            Arrays.toString(arg)));
+        }
+        var input = convertToDoubleArray(arg);
+        rownanie.oblicz(input[0], input[1], input[2]);
+    }
+
+    private double[] convertToDoubleArray(String[] arg) {
+        return Arrays.stream(arg).mapToDouble(Double::parseDouble).toArray();
     }
 }
