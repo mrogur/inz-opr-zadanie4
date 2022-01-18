@@ -22,4 +22,5 @@ public class Rownanie {
 
         return new double[] {};
     }
+
 }
