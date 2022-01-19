@@ -1,3 +1,3 @@
 ### Prosta aplikacja do obliczania pierwiastków równania kwadratowego
 
-Inżynieria Oprogramowania - projekt na zaliczenie
+Inżynieria Oprogramowania - projekt w języku Java na zaliczenie
