@@ -5,6 +5,9 @@ import static java.lang.Math.sqrt;
 
 public class Rownanie {
     public double[] oblicz(double a, double b, double c) {
+        if (a == 0) {
+            throw new IllegalArgumentException("Argument a nie może być zerem");
+        }
         double delta = pow(b,2) - 4 * a * c;
 
         if (delta > 0)
